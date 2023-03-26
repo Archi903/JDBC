@@ -1,7 +1,17 @@
+import homeWork2.City;
+import homeWork2.DAO.CityDao;
+import homeWork2.DAO.EmployeeDao;
+import homeWork2.DAO.Impl.CityImpl;
+import homeWork2.DAO.Impl.EmployeeImpl;
+import homeWork2.Employee;
+
 import java.sql.*;
 
-public class Application {
-    public static void main(String[] args) throws SQLException {
+public class Application{
+
+
+
+    public static void main(String[] args) throws SQLException  {
 
         final String user = "postgres";
         final String password = "art071093";
@@ -30,6 +40,12 @@ public class Application {
                 System.out.println("id города: " + city_id);
 
             }
+
+            final EmployeeDao EMPLOYEE_DAO = new EmployeeImpl(connection);
+            final CityDao CITY_DAO = new CityImpl(connection);
+            CITY_DAO.create(new City(1,"Moscow"));
+            EMPLOYEE_DAO.create(new Employee("eddie", "Murh", "Male", 24, new City(1,"Moscow")));
         }
+
     }
 }

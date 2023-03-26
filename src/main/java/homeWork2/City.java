@@ -6,6 +6,7 @@ public class City {
 
     private int id;
     private String city;
+
     public City(){
 
     }
